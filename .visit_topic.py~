@@ -1,0 +1,11 @@
+import urllib.request
+from bs4 import BeautifulSoup
+
+x = urllib.request.urlopen("https://www.allsides.com/topics-issues/topics/abortion")
+html_doc = x.read().decode('utf-8')
+
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+for link in soup.find_all('div',"allsides-daily-row"):
+    print(link);
+    
