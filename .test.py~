@@ -1,0 +1,4 @@
+import urllib.request
+
+x = urllib.request.urlopen("https://www.allsides.com/unbiased-balanced-news")
+print(x.read())
