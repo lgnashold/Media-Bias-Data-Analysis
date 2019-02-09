@@ -8,4 +8,4 @@ soup = BeautifulSoup(html_doc, 'html.parser')
 
 for link in filter(None, soup.find_all('a')):
     if str(link.get('href')).startswith("/topics/"):
-       print("https://www.allsides.com/topics-issues" + str(link.get('href')))
+       print("https://www.allsides.com" + str(link.get('href')))
