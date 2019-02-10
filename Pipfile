@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 wget = "*"
 "beautifulsoup4" = "*"
+"html5lib" = "*"
 
 [requires]
 python_version = "3.7"
