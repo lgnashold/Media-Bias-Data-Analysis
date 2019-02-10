@@ -5,7 +5,7 @@ import re
 
 
 
-x = urllib.request.urlopen("https://www.allsides.com/news/2018-08-27-0744/brett-kavanaugh-abortion-and-settled-law%E2%80%99")
+x = urllib.request.urlopen("https://www.allsides.com/news/2016-04-12-1440/should-parental-consent-be-required-pregnant-minors-have-abortions")
 html_doc = x.read().decode('utf-8')
 
 soup_int = BeautifulSoup(html_doc, 'html.parser')
@@ -34,8 +34,18 @@ for script in soup_art(["script", "style"]):
 #kill all things classes as "comment"
 
 for comment in soup_art.find_all(class_=re.compile("comment")):
-    comment.decompose()
+   comment.decompose()
 
+for comment in soup_art.find_all(id=re.compile("comment")):
+   comment.decompose()
+
+#CURRENT METHOD:  Only get paragraphs in text.
+
+for p in soup_art.find_all("p"):
+   print(p.get_text())
+
+
+#OTHER METHOD TRIES TO GET ALL TEXT, MORE CLUTTER
 # get text
 text = soup_art.get_text()
 
@@ -46,5 +56,5 @@ chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 # drop blank lines
 text = '\n'.join(chunk for chunk in chunks if chunk)
 
-print(text)
+#print(text)
 
